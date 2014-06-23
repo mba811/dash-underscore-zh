@@ -1,6 +1,6 @@
 # dash-underscore-zh
 
-underscore中文文档 for [dash](http://kapeli.com/dash)
+[underscore.js](http://underscorejs.org/)中文文档 for [dash](http://kapeli.com/dash)
 
 ## Usage
 
