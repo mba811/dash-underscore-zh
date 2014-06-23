@@ -101,6 +101,7 @@ tarFile = tarfile.open(os.path.join(currentPath, "dist", "underscore-zh.tgz"), "
 for root, dirNames, fileNames in os.walk("underscore-zh.docset"):
     for fileName in fileNames:
         fullPath = os.path.join(root, fileName)
+        print fullPath
         tarFile.add(fullPath)
 tarFile.close()
 
@@ -113,7 +114,7 @@ feedTemplate = Template('''<entry>
 fout = open(os.path.join(currentPath, "dist", "underscore-zh.tgz"), "rb")
 sha1Value = hashlib.sha1(fout.read()).hexdigest()
 fout.close()
-fin = open(os.path.join(currentPath, "underscore-zh-feed.xml"), "w")
+fin = open(os.path.join(currentPath, "underscore-zh.xml"), "w")
 fin.write(feedTemplate.render(sha1Value = sha1Value))
 fin.close()
 
