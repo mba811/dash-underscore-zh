@@ -56,6 +56,8 @@ infoTemplate = '''<?xml version="1.0" encoding="UTF-8"?>
 <string>underscore.js</string>
 <key>dashIndexFilePath</key>
 <string>index.html</string>
+<key>dashIndexFilePath</key>
+<string>index.html</string>
 <key>isDashDocset</key><true/>
 <key>isJavaScriptEnabled</key><true/>
 </dict>
@@ -87,6 +89,8 @@ for result in results:
     sql = insertTemplate.render(name = result["name"], type = result["type"], path = result["path"])
     print sql
     cursor.execute(sql)
+db.commit()
+db.close()
 
 # Step 6: copy icon
 shutil.copyfile(os.path.join(currentPath, "icon.png"),
@@ -117,6 +121,3 @@ fout.close()
 fin = open(os.path.join(currentPath, "underscore-zh.xml"), "w")
 fin.write(feedTemplate.render(sha1Value = sha1Value))
 fin.close()
-
-db.commit()
-db.close()
